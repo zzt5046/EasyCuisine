@@ -16,7 +16,6 @@ public class IngredientCtrl {
 	Ingredient ing;
 
     public IngredientCtrl(Ingredient ing){
-
     	this.ing = ing;
     	System.out.println("--IngredientCtrl instantiated");
     }
@@ -32,7 +31,7 @@ public class IngredientCtrl {
     ArrayList<Ingredient> getAllIngredients(User user){
 
     	ArrayList<Ingredient> ingredients = new ArrayList<>();
-
+        //retrieve data
     	return ingredients;
     }
 }
