@@ -5,6 +5,9 @@
  */
 package easycuisine;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Zach
@@ -12,6 +15,11 @@ package easycuisine;
 public class UserCtrl {
     
     User currentUser;
+    ResultSet results;
+    
+    public UserCtrl(){
+        System.out.println("--UserCtrl instantiated");  
+    }
     
     public UserCtrl(User user){
         
@@ -27,11 +35,28 @@ public class UserCtrl {
         currentUser.setPassword(pass);
     }
     
-    boolean authenticate(String username, String password){
+    boolean authenticate(String username, String password) throws SQLException{
         
         boolean authenticated = false;
+        String dbUser = "";
+        String dbPass = "";
         
-        if(username.equals(currentUser.getUsername()) && password.equals(currentUser.getPassword())){
+        try{
+        results = Database.query("SELECT * FROM APP.USERS WHERE Username='" + username + "'" );
+        
+        while(results.next()){
+                
+            dbUser = results.getString(1);
+            dbPass = results.getString(2);
+                
+            System.out.println(username + " - " + password);
+            }
+        }
+        catch(SQLException e){
+               e.printStackTrace();
+        }
+        
+        if(username.equals(dbUser) && password.equals(dbPass)){
             authenticated = true;
         }
         

@@ -16,7 +16,7 @@ public class EasyCuisine {
      */
     public static void main(String[] args) {
         
-        DatabaseQuery test = new DatabaseQuery("SELECT * FROM APP.USERS");
+        LoginFrame login = new LoginFrame();
     }
     
 }

@@ -15,32 +15,27 @@ import java.sql.Statement;
  *
  * @author Zach
  */
-public class DatabaseQuery {
+public class Database {
     
     static Connection conn = null;
-    Statement statement = null;
-    ResultSet results = null;
+    static Statement statement = null;
+    static ResultSet results = null;
     
-    public DatabaseQuery(String sql){
-        
-        String username;
-        String password;
+    public Database(){
+        System.out.println("--DatabaseQuery instantiated");
+    }
+    
+    static ResultSet query(String sql){
         
         try{ 
             conn = DriverManager.getConnection("jdbc:derby://localhost:1527/EasyCuisineDB");
             statement = conn.createStatement();
             results = statement.executeQuery(sql);
-            
-            while(results.next()){
-                
-                username = results.getString(1);
-                password = results.getString(2);
-                
-                System.out.println(username + " - " + password);
-            }
         }
         catch(SQLException e){
             e.printStackTrace();
         }
+        
+        return results;
     }
 }
