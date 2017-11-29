@@ -12,3 +12,8 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\Zach\Documents\GitHub\EasyCuisine
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Nov 28 23:29:39 EST 2017: Shutting down Derby engine
+----------------------------------------------------------------
+Tue Nov 28 23:29:39 EST 2017:
+Shutting down instance a816c00e-0160-05e6-116f-ffffb9b08484 on database directory C:\Users\Zach\Documents\GitHub\EasyCuisine\EasyCuisineDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
