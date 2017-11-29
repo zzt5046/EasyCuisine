@@ -1,7 +1,7 @@
-Tue Nov 28 22:50:52 EST 2017 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
+Tue Nov 28 23:30:58 EST 2017 : Apache Derby Network Server - 10.11.1.2 - (1629631) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue Nov 28 22:51:08 EST 2017:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0160-05e6-116f-ffffb9b08484 
+Tue Nov 28 23:30:58 EST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0160-060a-ca10-ffffb9b08484 
 on database directory C:\Users\Zach\Documents\GitHub\EasyCuisine\EasyCuisineDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
 Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_144/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -13,7 +13,8 @@ os.version=10.0
 derby.system.home=C:\Users\Zach\Documents\GitHub\EasyCuisine
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Tue Nov 28 23:29:39 EST 2017: Shutting down Derby engine
+Tue Nov 28 23:31:21 EST 2017: Shutting down Derby engine
 ----------------------------------------------------------------
-Tue Nov 28 23:29:39 EST 2017:
-Shutting down instance a816c00e-0160-05e6-116f-ffffb9b08484 on database directory C:\Users\Zach\Documents\GitHub\EasyCuisine\EasyCuisineDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Tue Nov 28 23:31:21 EST 2017:
+Shutting down instance a816c00e-0160-060a-ca10-ffffb9b08484 on database directory C:\Users\Zach\Documents\GitHub\EasyCuisine\EasyCuisineDB with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+----------------------------------------------------------------
