@@ -15,7 +15,8 @@ public class EasyCuisine {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        DatabaseQuery test = new DatabaseQuery("SELECT * FROM APP.USERS");
     }
     
 }
