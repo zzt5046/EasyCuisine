@@ -40,9 +40,10 @@ public class UserCtrl {
         boolean authenticated = false;
         String dbUser = "";
         String dbPass = "";
+        String sql = "SELECT * FROM APP.USERS WHERE Username='" + username + "'";
         
         try{
-        results = Database.query("SELECT * FROM APP.USERS WHERE Username='" + username + "'" );
+        results = Database.query(sql);
         
         while(results.next()){
                 
@@ -61,5 +62,11 @@ public class UserCtrl {
         }
         
         return authenticated;
+    }
+    
+    void register(String username, String password){
+        
+        String sql = "INSERT INTO USERS VALUES ('" + username + "', '" + password + "')";
+        Database.insert(sql);
     }
 }

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,8 +35,27 @@ public class Database {
         }
         catch(SQLException e){
             e.printStackTrace();
+            System.out.println("**Query failed: " + sql);
+            JOptionPane.showMessageDialog(null, "Something went wrong.");
         }
         
         return results;
+    }
+    
+    static void insert(String sql){
+        
+        int x = 0;
+        
+        try{ 
+            conn = DriverManager.getConnection("jdbc:derby://localhost:1527/EasyCuisineDB");
+            statement = conn.createStatement();
+            x = statement.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Registration Successful");
+        }
+        catch(SQLException e){
+            System.out.println("**Registration Failed");
+            JOptionPane.showMessageDialog(null, "Registration Failed");
+            e.printStackTrace();
+        }
     }
 }

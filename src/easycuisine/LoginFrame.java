@@ -20,7 +20,7 @@ public class LoginFrame extends javax.swing.JFrame {
      * Creates new form LoginFrame
      */
     
-    UserCtrl ctrl;
+    LoginBackend backend;
     
     public LoginFrame() {
         
@@ -43,8 +43,9 @@ public class LoginFrame extends javax.swing.JFrame {
         unLabel = new javax.swing.JLabel();
         pwLabel = new javax.swing.JLabel();
         unField = new javax.swing.JTextField();
-        pwField = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
+        register = new javax.swing.JButton();
+        pwField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,21 +55,28 @@ public class LoginFrame extends javax.swing.JFrame {
 
         submit.setText("Submit");
 
+        register.setText("Register");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(unLabel)
-                    .addComponent(pwLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submit)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(unField)
-                        .addComponent(pwField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(117, 117, 117)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(unLabel)
+                            .addComponent(pwLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(unField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                            .addComponent(pwField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(submit)
+                        .addGap(30, 30, 30)
+                        .addComponent(register)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,13 +86,15 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(unLabel)
                     .addComponent(unField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pwLabel)
                     .addComponent(pwField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(submit)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(submit)
+                    .addComponent(register))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,27 +105,28 @@ public class LoginFrame extends javax.swing.JFrame {
         submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 
-                ctrl = new UserCtrl();
+                backend = new LoginBackend();
+                
                 try {
-                    
-                    if(ctrl.authenticate(unField.getText(), pwField.getText())){
-                        JOptionPane.showMessageDialog(null, "Authenticated");
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Failed");
-                    }
-                    
+                    backend.authenticateUser(unField.getText(), pwField.getText());
                 } catch (SQLException ex) {
                     ex.printStackTrace();
                 }
-      
+            }
+        });
+        
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                RegisterView register = new RegisterView();
             }
         });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField pwField;
+    private javax.swing.JPasswordField pwField;
     private javax.swing.JLabel pwLabel;
+    private javax.swing.JButton register;
     private javax.swing.JButton submit;
     private javax.swing.JTextField unField;
     private javax.swing.JLabel unLabel;
