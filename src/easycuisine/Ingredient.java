@@ -16,7 +16,7 @@ public class Ingredient {
 
     public Ingredient(){
 
-    	System.out.println("--Basic Ingredient instantiated");
+    	System.out.println("--Ingredient instantiated");
     }
 
     public Ingredient(String name, int category){
