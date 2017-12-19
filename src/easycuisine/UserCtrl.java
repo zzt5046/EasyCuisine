@@ -38,9 +38,10 @@ public class UserCtrl {
     boolean authenticate(String username, String password) throws SQLException{
         
         boolean authenticated = false;
+        String sql = "SELECT * FROM APP.USERS WHERE Username='" + username + "'";
+        
         String dbUser = "";
         String dbPass = "";
-        String sql = "SELECT * FROM APP.USERS WHERE Username='" + username + "'";
         
         try{
         results = Database.query(sql);
@@ -62,6 +63,30 @@ public class UserCtrl {
         }
         
         return authenticated;
+    }
+    
+    User getUser(String username){
+        
+        String sql = "SELECT * FROM APP.USERS WHERE Username='" + username + "'";
+        
+        String name = "";
+        String pass = "";
+        
+        try{
+        results = Database.query(sql);
+        
+        while(results.next()){
+                
+            name = results.getString(1);
+            pass = results.getString(2);
+            
+            }
+        }
+        catch(SQLException e){
+               e.printStackTrace();
+        }
+        
+        return new User(name, pass);
     }
     
     void register(String username, String password){
